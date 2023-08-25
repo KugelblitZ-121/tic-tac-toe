@@ -36,6 +36,9 @@ function MainSquare() {
         return;
       }
     }
+    if (boxes.every((box) => box !== null) && !winner) {
+      setWinner("It is a tie!");
+    }
   };
   const resetGame = () => {
     setBoxGrid(boxes);
@@ -46,7 +49,7 @@ function MainSquare() {
       <div className="border border-red-500 grid grid-cols-3">
         {boxGrid.map((box, index) => (
           <div
-            className="w-24 h-24 text-6xl border border-red-500 flex items-center justify-center"
+            className="w-24 h-24 md:w-36 md:h-36 xs:w-20 xs:h-20 text-6xl md:text-8xl border border-red-500 flex items-center justify-center"
             key={index}
             onClick={() => handleChange(index)}
           >
@@ -56,7 +59,9 @@ function MainSquare() {
       </div>
       <div className="mt-5 text-2xl">
         {winner ? (
-          <span className="text-green-500">Winner is {winner}</span>
+          <span className={`text-green-500  ${winner === "It is a tie" ? "text-red-500" : ""}`}>
+            {winner === "It is a tie" ? winner : `Winner is  ${winner}`}
+          </span>
         ) : (
           <span>Next player is: {isX ? "X" : "O"}</span>
         )}
