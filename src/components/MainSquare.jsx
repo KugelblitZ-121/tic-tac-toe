@@ -57,10 +57,10 @@ function MainSquare() {
           </div>
         ))}
       </div>
-      <div className="mt-5 text-2xl">
+      <div className="mt-5 text-3xl">
         {winner ? (
-          <span className={`text-green-500  ${winner === "It is a tie" ? "text-red-500" : ""}`}>
-            {winner === "It is a tie" ? winner : `Winner is  ${winner}`}
+          <span className={`text-green-500  ${winner === "It is a tie!" ? "text-red-500" : ""}`}>
+            {winner === "It is a tie!" ? winner : `Winner is  ${winner}`}
           </span>
         ) : (
           <span>Next player is: {isX ? "X" : "O"}</span>
